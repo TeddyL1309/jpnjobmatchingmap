@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일본 신졸취업 가치관/강점 매핑북</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .search-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .legend {
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .legend-item {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        .legend-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .legend-dot.value {
+            background: #dc2626;
+        }
+
+        .legend-dot.strength {
+            background: #2563eb;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            background: #e9ecef;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-description {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .keyword {
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .keyword.value {
+            background: #fee2e2;
+            color: #dc2626;
+            border-color: #fecaca;
+        }
+
+        .keyword.strength {
+            background: #dbeafe;
+            color: #2563eb;
+            border-color: #bfdbfe;
+        }
+
+        .keyword:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .definition-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .definition-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 1rem 0;
+            border-bottom: 2px solid #e9ecef;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .definition-header:hover {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0 -1rem 1rem -1rem;
+        }
+
+        .definition-header h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .definition-toggle {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .definition-toggle:hover {
+            background: #5a67d8;
+            transform: scale(1.1);
+        }
+
+        .definition-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .definition-content.expanded {
+            max-height: 3000px;
+        }
+
+        .definition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+
+        .definition-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .definition-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .definition-item {
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .definition-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .definition-term {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .definition-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .values-category {
+            border-left-color: #dc2626;
+        }
+
+        .strengths-category {
+            border-left-color: #2563eb;
+        }
+
+        .index-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .index-column h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e9ecef;
+            font-size: 1.2rem;
+        }
+
+        .index-list {
+            list-style: none;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .index-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .index-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .index-keyword {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .index-references {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .reference-link {
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .reference-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            text-decoration: underline;
+        }
+
+        .reference-link.industry {
+            color: #dc2626 !important;
+            background: rgba(220, 38, 38, 0.1) !important;
+        }
+
+        .reference-link.industry:hover {
+            background: rgba(220, 38, 38, 0.2) !important;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .highlight {
+            background-color: #fff3cd !important;
+            border-color: #ffeaa7 !important;
+            animation: pulse 1s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-tabs {
+                justify-content: center;
+            }
+
+            .index-grid, .definition-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hard-skill-badge {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .search-results {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #1565c0;
+        }
+
+        .keyword-count {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-left: 0.5rem;
+        }
+
+        .category-subtitle {
+            color: #2563eb; 
+            margin: 1.5rem 0 1rem 0; 
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇯🇵 일본 신졸취업 가치관/강점 매핑북</h1>
+            <p class="subtitle">업계별 가치관 & 직종별 역량 완전 정리 | 21개 업계 × 13개 직종 × 24개 핵심 키워드</p>
+        </header>
+
+        <div class="stats-section">
+            <h2>📊 가이드북 현황</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">21</div>
+                    <div>주요 업계</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">13</div>
+                    <div>핵심 직종</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24</div>
+                    <div>키워드 매칭</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div>역량 분석</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 업계명, 직종명, 키워드로 검색하세요 (예: IT, 영업, 협조성, 발신력...)">
+            
+            <div class="legend">
+                <span class="legend-item">
+                    <span class="legend-dot value"></span>
+                    가치관 키워드
+                </span>
+                <span class="legend-item">
+                    <span class="legend-dot strength"></span>
+                    강점 키워드
+                </span>
+            </div>
+            
+            <div class="filter-tabs">
+                <button class="filter-tab" data-filter="협조성">협조성</button>
+                <button class="filter-tab" data-filter="성실성">성실성</button>
+                <button class="filter-tab" data-filter="주체성">주체성</button>
+                <button class="filter-tab" data-filter="도전정신">도전정신</button>
+                <button class="filter-tab" data-filter="공헌">공헌</button>
+                <button class="filter-tab" data-filter="향상심">향상심</button>
+                <button class="filter-tab" data-filter="communication">💬 커뮤니케이션형 직종</button>
+                <button class="filter-tab" data-filter="stress">🛡️ 스트레스 강인형 직종</button>
+                <button class="filter-tab" data-filter="intelligence">🧠 논리형 직종</button>
+                <button class="filter-tab" data-filter="leadership">👑 리더십형 직종</button>
+            </div>
+            <div id="searchResults" class="search-results hidden"></div>
+        </div>
+
+        <div class="nav-menu">
+            <a href="#industries" class="nav-btn">📈 업계별 가치관</a>
+            <a href="#jobs" class="nav-btn">💼 직종별 역량</a>
+            <a href="#definitions" class="nav-btn">📚 용어 정의</a>
+            <a href="#keyword-index" class="nav-btn">🔍 키워드 색인</a>
+            <a href="#guide" class="nav-btn">📋 활용 가이드</a>
+        </div>
+
+        <div class="section" id="industries">
+            <div class="section-header">📈 업계별 요구 가치관 (21개 업계)</div>
+            <div class="section-content">
+                <div class="grid" id="industryGrid">
+                    <!-- 업계 데이터가 여기에 동적으로 삽입됩니다 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="jobs">
+            <div class="section-header">💼 직종별 요구 역량 (13개 직종)</div>
+            <div class="section-content">
+                <div class="grid" id="jobGrid">
+                    <!-- 직종 데이터가 여기에 동적으로 삽입됩니다 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="definition-section" id="definitions">
+            <div class="definition-header" onclick="toggleDefinitions()">
+                <h2>📚 용어 정의</h2>
+                <div class="definition-toggle" id="definitionToggle">+</div>
+            </div>
+            <div class="definition-content" id="definitionContent">
+                <div class="definition-grid">
+                    <div class="definition-category values-category">
+                        <h3>🔴 8대 핵심 가치관 (価値観)</h3>
+                        <div class="definition-item">
+                            <div class="definition-term">1. 협조성 (協調性)</div>
+                            <div class="definition-desc">팀워크를 중시하는 일본 기업 문화에서 필수적인 가치관. 개인보다 팀과 회사의 성공을 위해 협력하는 자세</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">2. 성실성 (誠実性)</div>
+                            <div class="definition-desc">기본에 충실하고 거짓없이 맡은 일에 최선을 다하는 자세. 일본 직장에서는 지각 금지, 정확한 업무 처리 등 기본적인 것들을 매우 중요시함</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">3. 주체성 (主体性)</div>
+                            <div class="definition-desc">스스로 생각하고 판단하여 행동하는 자립적인 태도. 누군가가 시키거나 부탁하기 이전에 필요한 태스크에 대해 스스로 생각하고 개선하고자 하는 마음가짐</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">4. 도전정신 (チャレンジ精神)</div>
+                            <div class="definition-desc">새로운 것에 도전하고 어려움을 두려워하지 않는 마음가짐. 특히 내향적인 일본인들에게 부족한 부분으로 한국인이 잘 어필할 수 있는 포인트</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">5. 공헌 (貢献)</div>
+                            <div class="definition-desc">개인의 성공보다 팀과 회사, 나아가 사회 전체의 발전을 위해 기여하려는 자세. 일본 기업 문화의 핵심 가치관</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">6. 향상심 (向上心)</div>
+                            <div class="definition-desc">현재 상태에 만족하지 않고 자신의 능력이나 목표를 보다 높이 이끌려는 강한 의욕과 성장하려는 적극적인 자세</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">7. 책임감 (責任感)</div>
+                            <div class="definition-desc">맡은 업무와 역할에 대해 끝까지 책임지는 자세. 장기 고용을 전제로 하는 일본 기업에서 중요하게 여기는 가치관</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">8. 융통성 (柔軟性)</div>
+                            <div class="definition-desc">종합직으로 다양한 부서를 경험하게 되는 일본 기업 특성상 변화하는 환경에 유연하게 적응하는 자세</div>
+                        </div>
+                    </div>
+                    
+                    <div class="definition-category strengths-category">
+                        <h3>🔵 핵심 강점 및 능력 (強み・能力) - 총 16개</h3>
+                        
+                        <div class="category-subtitle">💬 커뮤니케이션 능력 (4개)</div>
+                        <div class="definition-item">
+                            <div class="definition-term">발신력 (発信力)</div>
+                            <div class="definition-desc">자신의 생각이나 감정을 상대에게 이해할 수 있도록 논리적이고 간결하고 정확하게 전달하는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">공감력 (共感力)</div>
+                            <div class="definition-desc">상대방의 입장에 서서 생각할 수 있는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">경청력 (傾聴力)</div>
+                            <div class="definition-desc">상대의 이야기를 잘 들어주고 수용할 수 있는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">통찰력 (洞察力)</div>
+                            <div class="definition-desc">상대의 말이나 행동에 숨겨진 본질과 의도를 읽어낼 수 있는 힘</div>
+                        </div>
+
+                        <div class="category-subtitle">🛡️ 스트레스 내성 (4개)</div>
+                        <div class="definition-item">
+                            <div class="definition-term">유연성 (柔軟性)</div>
+                            <div class="definition-desc">다양한 낯선 상황에 당황하지 않고 대응할 수 있는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">인내력 (忍耐力)</div>
+                            <div class="definition-desc">공황에 빠지지 않고 스트레스 상황을 버텨내는 힘</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">냉정함 (冷静さ)</div>
+                            <div class="definition-desc">어려운 상황에서도 감정적으로 되지 않고 냉정함을 유지하는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">적극성 (積極性)</div>
+                            <div class="definition-desc">어려움을 성장의 기회로 파악하고 낙관적으로 생각하고 긍정적으로 행동할 수 있는 자세</div>
+                        </div>
+
+                        <div class="category-subtitle">🧠 지적 능력 (2개)</div>
+                        <div class="definition-item">
+                            <div class="definition-term">논리적 사고력 (論理的思考力)</div>
+                            <div class="definition-desc">감이 아니라 객관적인 사실과 데이터에 입각하여 논리적으로 문제 해결을 이끌어 낼 수 있는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">정보활용능력 (情報活用能力)</div>
+                            <div class="definition-desc">가지고 있는 지식이나 정보를 가공해, 한정된 정보로부터 최적의 판단을 내리거나 문제를 해결하는 힘</div>
+                        </div>
+
+                        <div class="category-subtitle">👑 리더십 (2개)</div>
+                        <div class="definition-item">
+                            <div class="definition-term">견인력 (牽引力)</div>
+                            <div class="definition-desc">집단의 목표 달성을 위해 멤버들에게 방향성을 제시하고 이끌어가는 힘</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">모티베이션 능력 (モチベーション能力)</div>
+                            <div class="definition-desc">지시와 명령이 아닌 멤버들이 자발적으로 움직이게 할 수 있도록 동기를 부여하는 능력</div>
+                        </div>
+
+                        <div class="category-subtitle">⚡ 그 외 핵심 강점 (4개)</div>
+                        <div class="definition-item">
+                            <div class="definition-term">창조력 (創造力)</div>
+                            <div class="definition-desc">새로운 것을 생각하고 실행에 옮겨 실현할 수 있는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">이문화이해력 (異文化理解力)</div>
+                            <div class="definition-desc">자신과 다른 문화나 습관, 생각을 이해하고 받아들이는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">외국어능력 (外国語能力)</div>
+                            <div class="definition-desc">일본어 이외의 언어를 구사할 수 있는 능력</div>
+                        </div>
+                        <div class="definition-item">
+                            <div class="definition-term">자기관리능력 (自己管理能力)</div>
+                            <div class="definition-desc">목표 달성을 위해 자신의 행동, 생각, 감정을 관리하는 능력</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="keyword-index">
+            <div class="section-header">🔍 키워드 색인 (24개 키워드)</div>
+            <div class="section-content">
+                <div class="index-grid">
+                    <div class="index-column">
+                        <h3>🔴 가치관 키워드 (8개)</h3>
+                        <ul class="index-list" id="valueKeywords">
+                            <!-- 가치관 키워드 색인이 여기에 삽입됩니다 -->
+                        </ul>
+                    </div>
+                    <div class="index-column">
+                        <h3>🔵 강점 키워드 (16개)</h3>
+                        <ul class="index-list" id="strengthKeywords">
+                            <!-- 강점 키워드 색인이 여기에 삽입됩니다 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="guide">
+            <div class="section-header">📋 활용 가이드</div>
+            <div class="section-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h3>🎯 자기소개서 작성법</h3>
+                        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                            <li>🔴 가치관 키워드 → 개인의 신념과 동기 스토리</li>
+                            <li>🔵 강점 키워드 → 구체적인 능력과 성과 사례</li>
+                            <li>업계+직종 매칭으로 맞춤형 어필</li>
+                            <li>키워드별 구체적 경험담 준비</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🎤 면접 준비법</h3>
+                        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                            <li>키워드별 STAR 기법으로 답변 준비</li>
+                            <li>업계 트렌드와 연결한 답변</li>
+                            <li>가치관 질문 vs 역량 질문 구분 대응</li>
+                            <li>역질문에 키워드 활용</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🔍 검색 활용법</h3>
+                        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                            <li>관심 키워드로 관련 업계/직종 탐색</li>
+                            <li>필터 기능으로 맞춤형 정보 확인</li>
+                            <li>색인을 통한 키워드 역추적</li>
+                            <li>키워드 조합으로 포지셔닝 전략</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 강점 카테고리 매핑
+        const strengthCategories = {
+            communication: ["발신력", "공감력", "경청력"],
+            stress: ["유연성", "인내력", "냉정함", "적극성"],
+            intelligence: ["논리적 사고력", "정보활용능력"],
+            leadership: ["견인력", "모티베이션 능력"]
+        };
+
+        // 키워드 색인 (업데이트된 데이터 - 리스업계 제거)
+        const keywordIndex = {
+            value: {
+                "공헌": ["IT업계", "제조업계", "상사업계", "유통업계", "컨설팅업계", "인재업계", "교육업계", "여행업계", "건설업계", "부동산업계", "제네콘업계", "에너지업계", "교통업계", "통신업계", "금융업계"],
+                "성실성": ["IT업계", "제조업계", "상사업계", "유통업계", "컨설팅업계", "인재업계", "교육업계", "여행업계", "건설업계", "부동산업계", "제네콘업계", "에너지업계", "교통업계", "통신업계", "금융업계"],
+                "협조성": ["IT업계", "제조업계", "상사업계", "유통업계", "컨설팅업계", "인재업계", "교육업계", "여행업계", "건설업계", "부동산업계", "제네콘업계", "에너지업계", "교통업계", "통신업계", "금융업계"],
+                "주체성": ["IT업계", "컨설팅업계", "호텔업계", "항공업계", "광고업계", "방송업계", "IT직", "영업직", "크리에이티브직", "기획직", "마케팅직", "문과 종합직", "이과 종합직", "연구개발직", "전문직"],
+                "도전정신": ["IT업계", "상사업계", "컨설팅업계", "인재업계", "교육업계", "광고업계", "방송업계", "에너지업계", "영업직", "크리에이티브직", "기획직", "IT직", "연구개발직"],
+                "책임감": ["제조업계", "항공업계", "언론업계", "에너지업계", "교통업계", "금융업계", "건설업계", "금융직", "건축직", "생산기술직", "연구개발직", "전문직"],
+                "융통성": ["IT업계", "상사업계", "유통업계", "호텔업계", "광고업계", "출판업계", "에너지업계", "교통업계", "통신업계", "서비스·판매직", "크리에이티브직", "문과 종합직"],
+                "향상심": ["IT업계", "컨설팅업계", "인재업계", "광고업계", "통신업계", "금융업계", "IT직", "연구개발직", "기획직", "전문직"]
+            },
+            strength: {
+                "발신력": ["상사업계", "유통업계", "컨설팅업계", "인재업계", "교육업계", "호텔업계", "항공업계", "여행업계", "광고업계", "언론업계", "방송업계", "출판업계", "금융업계", "부동산업계", "영업직", "서비스·판매직", "금융직", "크리에이티브직", "기획직", "마케팅직", "문과 종합직", "이과 종합직", "전문직"],
+                "논리적 사고력": ["IT업계", "컨설팅업계", "건설업계", "제네콘업계", "에너지업계", "통신업계", "금융업계", "부동산업계", "영업직", "금융직", "기획직", "마케팅직", "IT직", "이과 종합직", "생산기술직", "연구개발직", "전문직"],
+                "유연성": ["IT업계", "유통업계", "호텔업계", "여행업계", "언론업계", "에너지업계", "교통업계", "부동산업계", "서비스·판매직", "문과 종합직", "이과 종합직", "생산기술직", "연구개발직"],
+                "정보활용능력": ["제조업계", "유통업계", "교육업계", "여행업계", "언론업계", "출판업계", "금융직", "크리에이티브직", "기획직", "마케팅직", "IT직", "문과 종합직", "전문직"],
+                "경청력": ["인재업계", "부동산업계", "금융업계", "영업직", "서비스·판매직", "금융직", "크리에이티브직", "기획직", "마케팅직", "IT직", "건축직"],
+                "창조력": ["IT업계", "제조업계", "유통업계", "교육업계", "광고업계", "언론업계", "방송업계", "출판업계", "크리에이티브직", "기획직", "마케팅직", "건축직"],
+                "인내력": ["제조업계", "방송업계", "부동산업계", "영업직", "서비스·판매직", "크리에이티브직", "이과 종합직", "연구개발직"],
+                "견인력": ["상사업계", "건설업계", "제네콘업계", "마케팅직", "건축직", "문과 종합직", "생산기술직", "전문직"],
+                "공감력": ["인재업계", "교육업계", "호텔업계", "영업직", "서비스·판매직", "금융직", "크리에이티브직"],
+                "적극성": ["IT업계", "컨설팅업계", "방송업계", "제네콘업계", "통신업계", "영업직"],
+                "이문화이해력": ["상사업계", "호텔업계", "항공업계", "여행업계", "광고업계", "에너지업계"],
+                "자기관리능력": ["항공업계", "교통업계", "서비스·판매직", "건축직"],
+                "외국어능력": ["상사업계", "항공업계"],
+                "통찰력": ["인재업계", "광고업계"],
+                "냉정함": ["서비스·판매직"],
+                "모티베이션 능력": ["전문직"]
+            }
+        };
+
+        // 업계 데이터 (21개 - 리스업계 제거, 부동산업계 강화)
+        const industries = [
+            {
+                name: "IT업계",
+                description: "소프트웨어 개발, 시스템 구축, 데이터 처리 등을 담당하는 업계로, 급변하는 기술 환경에서 지속적인 학습과 혁신이 필수적인 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["융통성", "향상심", "협조성", "성실성", "공헌", "주체성", "도전정신"],
+                    strength: ["논리적 사고력", "유연성", "적극성", "창조력"]
+                }
+            },
+            {
+                name: "제조업계",
+                description: "자동차, 전자제품, 기계 등 다양한 제품을 생산하는 업계로, 품질 관리와 안전성이 최우선이며 장기적인 개선과 효율화를 추구하는 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["성실성", "책임감", "협조성", "공헌"],
+                    strength: ["인내력", "정보활용능력", "창조력"]
+                }
+            },
+            {
+                name: "상사업계",
+                description: "국내외 다양한 상품의 수출입과 중간 유통을 담당하는 업계로, 글로벌 시장에서의 비즈니스 네트워킹과 리스크 관리가 핵심이며 국제적 감각이 요구되는 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["도전정신", "융통성", "협조성", "성실성", "공헌"],
+                    strength: ["발신력", "견인력", "이문화이해력", "외국어능력"]
+                }
+            },
+            {
+                name: "유통업계",
+                description: "제품을 소비자에게 전달하는 모든 과정을 관리하는 업계로, 공급망 최적화와 고객 서비스가 핵심이며 시장 변화에 빠른 대응이 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["협조성", "융통성", "성실성", "공헌"],
+                    strength: ["발신력", "정보활용능력", "창조력", "유연성"]
+                }
+            },
+            {
+                name: "컨설팅업계",
+                description: "기업의 경영 문제를 분석하고 해결책을 제시하는 전문 서비스업으로, 논리적 분석력과 문제해결 능력이 핵심이며 클라이언트와의 깊은 소통이 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["향상심", "주체성", "도전정신", "공헌", "협조성", "성실성"],
+                    strength: ["논리적 사고력", "발신력", "적극성"]
+                }
+            },
+            {
+                name: "인재업계",
+                description: "기업의 채용부터 인재 육성까지 인적자원 관리를 지원하는 업계로, 사람에 대한 깊은 이해와 매칭 능력이 핵심이며 장기적인 관계 구축이 중요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "향상심", "협조성", "성실성", "도전정신"],
+                    strength: ["공감력", "발신력", "경청력", "통찰력"]
+                }
+            },
+            {
+                name: "교육업계",
+                description: "학교, 학원, 연수기관 등에서 지식과 기술을 전달하는 업계로, 학습자 중심의 교육 설계와 효과적인 지식 전달이 핵심이며 사회적 책임감이 강한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "협조성", "성실성", "도전정신"],
+                    strength: ["공감력", "발신력", "정보활용능력", "창조력"]
+                }
+            },
+            {
+                name: "호텔업계",
+                description: "숙박, 레스토랑, 컨벤션 등 종합적인 접객 서비스를 제공하는 업계로, 고급 서비스와 고객 만족이 최우선이며 24시간 운영과 국제적 대응이 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["주체성", "융통성"],
+                    strength: ["발신력", "공감력", "유연성", "이문화이해력"]
+                }
+            },
+            {
+                name: "항공업계",
+                description: "항공기 운항과 승객 서비스를 담당하는 업계로, 안전성이 절대적 우선순위이며 국제 노선 운영과 엄격한 규정 준수가 필수적인 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["책임감", "주체성"],
+                    strength: ["발신력", "이문화이해력", "외국어능력", "자기관리능력"]
+                }
+            },
+            {
+                name: "여행업계",
+                description: "개인과 단체의 여행 기획부터 실행까지 전체 서비스를 제공하는 업계로, 다양한 문화와 지역에 대한 지식이 필요하며 고객 맞춤형 서비스가 핵심인 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "협조성", "성실성"],
+                    strength: ["발신력", "정보활용능력", "이문화이해력", "유연성"]
+                }
+            },
+            {
+                name: "광고업계",
+                description: "브랜드와 제품의 마케팅 전략을 수립하고 광고 콘텐츠를 제작하는 업계로, 창의적 아이디어와 시장 트렌드 파악이 핵심이며 빠른 변화와 경쟁이 치열한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["융통성", "향상심", "도전정신", "주체성"],
+                    strength: ["창조력", "통찰력", "발신력", "이문화이해력"]
+                }
+            },
+            {
+                name: "언론업계",
+                description: "신문, TV, 온라인 등을 통해 뉴스와 정보를 전달하는 업계로, 정확한 사실 확인과 공정한 보도가 핵심이며 사회적 영향력과 책임이 큰 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["책임감"],
+                    strength: ["발신력", "정보활용능력", "창조력", "유연성"]
+                }
+            },
+            {
+                name: "방송업계",
+                description: "TV, 라디오 프로그램의 기획부터 제작, 송출까지 담당하는 업계로, 시청자를 위한 양질의 콘텐츠 제작이 핵심이며 실시간 방송의 특성상 순발력과 팀워크가 중요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["주체성", "도전정신"],
+                    strength: ["발신력", "창조력", "인내력", "적극성"]
+                }
+            },
+            {
+                name: "출판업계",
+                description: "도서, 잡지, 디지털 콘텐츠 등의 기획부터 출간까지 담당하는 업계로, 독자의 니즈 파악과 양질의 콘텐츠 발굴이 핵심이며 오랜 제작 기간과 세심한 편집 과정이 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["융통성"],
+                    strength: ["창조력", "정보활용능력", "발신력"]
+                }
+            },
+            {
+                name: "건설업계",
+                description: "주거용, 상업용 건물부터 도로, 교량 등 사회 인프라를 건설하는 업계로, 안전한 시공과 품질 관리가 최우선이며 대규모 프로젝트의 체계적 관리가 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "협조성", "성실성", "책임감"],
+                    strength: ["견인력", "논리적 사고력"]
+                }
+            },
+            {
+                name: "부동산업계",
+                description: "토지와 건물의 매매, 임대, 관리부터 부동산 금융 서비스까지 담당하는 업계로, 시장 분석과 고객별 맞춤 솔루션 제공이 핵심이며 법적 지식과 리스크 평가 능력이 중요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "협조성", "성실성"],
+                    strength: ["발신력", "경청력", "논리적 사고력", "유연성", "인내력"]
+                }
+            },
+            {
+                name: "제네콘업계",
+                description: "대형 건설 프로젝트의 총괄 관리를 담당하는 종합건설업으로, 복잡한 공정 관리와 다양한 협력업체 조율이 핵심이며 프로젝트 리더십과 위험 관리가 중요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "협조성", "성실성"],
+                    strength: ["견인력", "논리적 사고력", "적극성"]
+                }
+            },
+            {
+                name: "에너지업계",
+                description: "전력, 가스, 신재생에너지 등 국가 기간산업을 담당하는 업계로, 안정적인 에너지 공급과 환경 보호가 핵심이며 기술 혁신과 국제 협력이 중요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "책임감", "도전정신", "융통성", "협조성", "성실성"],
+                    strength: ["이문화이해력", "유연성", "논리적 사고력"]
+                }
+            },
+            {
+                name: "교통업계",
+                description: "철도, 버스, 택시 등 대중교통과 물류 운송을 담당하는 업계로, 정시 운행과 승객 안전이 최우선이며 대규모 운영 시스템의 효율적 관리가 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "책임감", "융통성", "협조성", "성실성"],
+                    strength: ["자기관리능력", "유연성"]
+                }
+            },
+            {
+                name: "통신업계",
+                description: "전화, 인터넷, 모바일 등 통신 서비스와 네트워크 인프라를 제공하는 업계로, 안정적인 서비스 제공과 차세대 기술 개발이 핵심이며 빠른 기술 변화에 대한 적응이 필요한 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "향상심", "융통성", "협조성", "성실성"],
+                    strength: ["논리적 사고력", "적극성"]
+                }
+            },
+            {
+                name: "금융업계",
+                description: "은행, 증권, 보험 등을 통해 자금 중개와 금융 서비스를 제공하는 업계로, 신뢰성과 전문성이 핵심이며 엄격한 규제 준수와 리스크 관리가 필수적인 특징을 가지고 있습니다.",
+                keywords: {
+                    value: ["공헌", "책임감", "향상심", "협조성", "성실성"],
+                    strength: ["발신력", "경청력", "논리적 사고력"]
+                }
+            }
+        ];
+
+        // 직종 데이터 (13개)
+        const jobs = [
+            {
+                name: "영업직",
+                description: "고객과의 관계를 구축하고 성과를 창출하는 핵심 직종으로, 뛰어난 커뮤니케이션 능력과 논리적 사고력이 필요합니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["주체성", "도전정신"],
+                    strength: ["발신력", "경청력", "공감력", "논리적 사고력", "인내력", "적극성"]
+                }
+            },
+            {
+                name: "서비스·판매직",
+                description: "고객 접점에서 최상의 서비스를 제공하는 직종으로, 유연성과 공감력으로 고객 만족을 실현합니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["융통성"],
+                    strength: ["발신력", "경청력", "유연성", "공감력", "자기관리능력", "인내력", "냉정함"]
+                }
+            },
+            {
+                name: "금융직",
+                description: "고객의 자산을 관리하는 전문직종으로, 높은 신뢰성과 논리적 분석 능력이 요구됩니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["책임감"],
+                    strength: ["발신력", "경청력", "정보활용능력", "논리적 사고력", "공감력"]
+                }
+            },
+            {
+                name: "크리에이티브직",
+                description: "창조적 아이디어와 표현력으로 새로운 가치를 창출하는 전문 직종입니다.",
+                hardSkill: true,
+                keywords: {
+                    value: ["주체성", "융통성", "도전정신"],
+                    strength: ["창조력", "정보활용능력", "발신력", "공감력", "인내력", "경청력"]
+                }
+            },
+            {
+                name: "기획직",
+                description: "전략적 사고로 기업의 미래를 설계하며, 창의적 아이디어를 구체적인 계획으로 발전시키는 직종입니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["주체성", "도전정신", "향상심"],
+                    strength: ["창조력", "정보활용능력", "논리적 사고력", "발신력", "경청력"]
+                }
+            },
+            {
+                name: "마케팅직",
+                description: "시장과 고객을 분석하여 효과적인 전략을 수립하는 데이터 기반 직종입니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["주체성"],
+                    strength: ["정보활용능력", "논리적 사고력", "창조력", "발신력", "견인력", "경청력"]
+                }
+            },
+            {
+                name: "IT직",
+                description: "프로그래밍과 시스템 개발을 통해 기술적 솔루션을 제공하는 전문 기술 직종입니다.",
+                hardSkill: true,
+                keywords: {
+                    value: ["주체성", "도전정신", "향상심"],
+                    strength: ["논리적 사고력", "정보활용능력", "경청력"]
+                }
+            },
+            {
+                name: "건축직",
+                description: "건물의 설계부터 시공까지 전 과정을 관리하며 안전한 공간을 창조하는 전문 직종입니다.",
+                hardSkill: true,
+                keywords: {
+                    value: ["책임감"],
+                    strength: ["경청력", "창조력", "견인력", "자기관리능력"]
+                }
+            },
+            {
+                name: "문과 종합직",
+                description: "기업의 미래를 이끌 리더 후보로서 광범위한 업무를 담당하는 직종입니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["주체성", "융통성"],
+                    strength: ["발신력", "견인력", "유연성", "정보활용능력"]
+                }
+            },
+            {
+                name: "이과 종합직",
+                description: "논리적 사고를 바탕으로 복잡한 문제를 해결하는 직종입니다.",
+                hardSkill: false,
+                keywords: {
+                    value: ["주체성"],
+                    strength: ["논리적 사고력", "발신력", "인내력", "유연성"]
+                }
+            },
+            {
+                name: "생산기술직",
+                description: "제조 현장의 효율화와 품질 향상을 위해 기술적 개선을 추진하는 핵심 직종입니다.",
+                hardSkill: true,
+                keywords: {
+                    value: ["책임감"],
+                    strength: ["논리적 사고력", "견인력", "유연성"]
+                }
+            },
+            {
+                name: "연구개발직",
+                description: "새로운 기술과 제품을 개발하여 혁신을 창출하는 전문 직종입니다.",
+                hardSkill: true,
+                keywords: {
+                    value: ["주체성", "도전정신", "향상심", "책임감"],
+                    strength: ["논리적 사고력", "인내력", "유연성"]
+                }
+            },
+            {
+                name: "전문직",
+                description: "특정 분야의 고도한 전문성을 바탕으로 고부가가치 업무를 수행하는 스페셜리스트 직종입니다.",
+                hardSkill: true,
+                keywords: {
+                    value: ["주체성", "책임감", "향상심"],
+                    strength: ["정보활용능력", "발신력", "논리적 사고력", "견인력", "모티베이션 능력"]
+                }
+            }
+        ];
+
+        // DOM 요소들
+        const searchBox = document.getElementById('searchBox');
+        const searchResults = document.getElementById('searchResults');
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const industryGrid = document.getElementById('industryGrid');
+        const jobGrid = document.getElementById('jobGrid');
+        const valueKeywords = document.getElementById('valueKeywords');
+        const strengthKeywords = document.getElementById('strengthKeywords');
+
+        let currentFilter = null;
+
+        // 정의 섹션 토글 기능
+        function toggleDefinitions() {
+            const content = document.getElementById('definitionContent');
+            const toggle = document.getElementById('definitionToggle');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                toggle.textContent = '+';
+            } else {
+                content.classList.add('expanded');
+                toggle.textContent = '−';
+            }
+        }
+
+        // 강점 카테고리별 필터링 함수
+        function checkStrengthCategory(strengths, category) {
+            const requiredStrengths = strengthCategories[category];
+            
+            switch(category) {
+                case 'communication':
+                    return requiredStrengths.every(strength => strengths.includes(strength));
+                case 'stress':
+                    return requiredStrengths.filter(strength => strengths.includes(strength)).length >= 3;
+                case 'intelligence':
+                    return requiredStrengths.every(strength => strengths.includes(strength));
+                case 'leadership':
+                    return requiredStrengths.every(strength => strengths.includes(strength));
+                default:
+                    return false;
+            }
+        }
+
+        // 업계 카드 생성
+        function renderIndustries(data = industries) {
+            industryGrid.innerHTML = data.map(industry => `
+                <div class="card industry-card" data-type="industry" data-name="${industry.name}">
+                    <div class="card-title">
+                        ${industry.name}
+                        <span class="keyword-count">${industry.keywords.value.length + industry.keywords.strength.length}개 키워드</span>
+                    </div>
+                    <div class="card-description">${industry.description}</div>
+                    <div class="keywords">
+                        ${industry.keywords.value.map(keyword => 
+                            `<span class="keyword value" data-keyword="${keyword}" onclick="searchKeyword('${keyword}')" title="가치관: ${keyword}">${keyword}</span>`
+                        ).join('')}
+                        ${industry.keywords.strength.map(keyword => 
+                            `<span class="keyword strength" data-keyword="${keyword}" onclick="searchKeyword('${keyword}')" title="강점: ${keyword}">${keyword}</span>`
+                        ).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 직종 카드 생성
+        function renderJobs(data = jobs) {
+            jobGrid.innerHTML = data.map(job => `
+                <div class="card job-card" data-type="job" data-name="${job.name}">
+                    <div class="card-title">
+                        ${job.name}
+                        ${job.hardSkill ? '<span class="hard-skill-badge">전문기술 필요</span>' : ''}
+                        <span class="keyword-count">${job.keywords.value.length + job.keywords.strength.length}개 키워드</span>
+                    </div>
+                    <div class="card-description">${job.description}</div>
+                    <div class="keywords">
+                        ${job.keywords.value.map(keyword => 
+                            `<span class="keyword value" data-keyword="${keyword}" onclick="searchKeyword('${keyword}')" title="가치관: ${keyword}">${keyword}</span>`
+                        ).join('')}
+                        ${job.keywords.strength.map(keyword => 
+                            `<span class="keyword strength" data-keyword="${keyword}" onclick="searchKeyword('${keyword}')" title="강점: ${keyword}">${keyword}</span>`
+                        ).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // 키워드 색인 생성
+        function renderKeywordIndex() {
+            // 가치관 키워드 - 참조 개수 기준 내림차순 정렬
+            const sortedValueKeywords = Object.entries(keywordIndex.value)
+                .sort(([,a], [,b]) => b.length - a.length);
+
+            valueKeywords.innerHTML = sortedValueKeywords
+                .map(([keyword, references]) => `
+                <li class="index-item" data-keyword="${keyword}">
+                    <div class="index-keyword">${keyword} <span class="keyword-count">${references.length}개</span></div>
+                    <div class="index-references">
+                        ${references.map(ref => {
+                            const isIndustry = ref.endsWith('업계');
+                            return `<a href="#" class="reference-link ${isIndustry ? 'industry' : ''}" onclick="searchKeyword('${ref}')" title="${ref}로 이동">${ref}</a>`;
+                        }).join('')}
+                    </div>
+                </li>
+            `).join('');
+
+            // 강점 키워드 - 참조 개수 기준 내림차순 정렬
+            const sortedStrengthKeywords = Object.entries(keywordIndex.strength)
+                .sort(([,a], [,b]) => b.length - a.length);
+
+            strengthKeywords.innerHTML = sortedStrengthKeywords
+                .map(([keyword, references]) => `
+                <li class="index-item" data-keyword="${keyword}">
+                    <div class="index-keyword">${keyword} <span class="keyword-count">${references.length}개</span></div>
+                    <div class="index-references">
+                        ${references.map(ref => {
+                            const isIndustry = ref.endsWith('업계');
+                            return `<a href="#" class="reference-link ${isIndustry ? 'industry' : ''}" onclick="searchKeyword('${ref}')" title="${ref}로 이동">${ref}</a>`;
+                        }).join('')}
+                    </div>
+                </li>
+            `).join('');
+        }
+
+        // 검색 기능
+        function searchKeyword(keyword) {
+            searchBox.value = keyword;
+            performSearch();
+            
+            // 검색 결과가 있으면 해당 섹션으로 스크롤
+            setTimeout(() => {
+                const firstResult = document.querySelector('.highlight');
+                if (firstResult) {
+                    firstResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 100);
+        }
+
+        function performSearch() {
+            const query = searchBox.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            const indexItems = document.querySelectorAll('.index-item');
+            
+            let visibleCount = 0;
+            let matchedKeywords = new Set();
+
+            // 카드 필터링
+            cards.forEach(card => {
+                const cardName = card.dataset.name.toLowerCase();
+                const cardText = card.textContent.toLowerCase();
+                const keywords = Array.from(card.querySelectorAll('.keyword')).map(k => k.textContent.toLowerCase());
+                
+                let shouldShow = false;
+                
+                if (!query && !currentFilter) {
+                    shouldShow = true;
+                } else if (query) {
+                    if (cardName.includes(query) || cardText.includes(query) || keywords.some(k => k.includes(query))) {
+                        shouldShow = true;
+                        keywords.forEach(k => {
+                            if (k.includes(query)) matchedKeywords.add(k);
+                        });
+                    }
+                }
+
+                // 필터 적용
+                if (currentFilter) {
+                    const valueKeywords = Array.from(card.querySelectorAll('.keyword.value')).map(k => k.textContent);
+                    const strengthKeywords = Array.from(card.querySelectorAll('.keyword.strength')).map(k => k.textContent);
+                    
+                    if (['협조성', '성실성', '주체성', '도전정신', '공헌', '향상심', '책임감', '융통성'].includes(currentFilter)) {
+                        // 가치관 필터링
+                        if (!valueKeywords.includes(currentFilter)) {
+                            shouldShow = false;
+                        } else if (!query) {
+                            shouldShow = true;
+                        }
+                    } else if (['communication', 'stress', 'intelligence', 'leadership'].includes(currentFilter)) {
+                        // 강점 카테고리 필터링
+                        if (!checkStrengthCategory(strengthKeywords, currentFilter)) {
+                            shouldShow = false;
+                        } else if (!query) {
+                            shouldShow = true;
+                        }
+                    }
+                }
+
+                card.style.display = shouldShow ? 'block' : 'none';
+                card.classList.toggle('highlight', shouldShow && (query || currentFilter));
+                
+                if (shouldShow) visibleCount++;
+            });
+
+            // 색인 하이라이트
+            indexItems.forEach(item => {
+                const keyword = item.dataset.keyword.toLowerCase();
+                const shouldHighlight = keyword.includes(query) && query;
+                item.classList.toggle('highlight', shouldHighlight);
+            });
+
+            // 검색 결과 표시
+            if (query || currentFilter) {
+                searchResults.classList.remove('hidden');
+                
+                if (query && currentFilter) {
+                    searchResults.innerHTML = `
+                        🎯 "${query}" + ${getFilterName(currentFilter)} 검색결과: <strong>${visibleCount}개</strong> 매칭
+                        ${matchedKeywords.size > 0 ? `| 키워드: ${Array.from(matchedKeywords).join(', ')}` : ''}
+                    `;
+                } else if (query) {
+                    if (visibleCount > 0) {
+                        searchResults.innerHTML = `
+                            🎯 "${query}" 검색결과: <strong>${visibleCount}개</strong> 발견 
+                            ${matchedKeywords.size > 0 ? `| 매칭된 키워드: ${Array.from(matchedKeywords).join(', ')}` : ''}
+                        `;
+                    } else {
+                        searchResults.innerHTML = `❌ "${query}"에 대한 검색 결과가 없습니다. 다른 키워드를 시도해보세요.`;
+                    }
+                } else if (currentFilter) {
+                    searchResults.innerHTML = `
+                        ${getFilterName(currentFilter)} 필터: <strong>${visibleCount}개</strong> 매칭
+                        ${getFilterDescription(currentFilter)}
+                    `;
+                }
+            } else {
+                searchResults.classList.add('hidden');
+            }
+        }
+
+        function getFilterName(filter) {
+            const names = {
+                '협조성': '협조성',
+                '성실성': '성실성', 
+                '주체성': '주체성',
+                '도전정신': '도전정신',
+                '공헌': '공헌',
+                '향상심': '향상심',
+                '책임감': '책임감',
+                '융통성': '융통성',
+                'communication': '💬 커뮤니케이션형 직종',
+                'stress': '🛡️ 스트레스 강인형 직종',
+                'intelligence': '🧠 논리형 직종',
+                'leadership': '👑 리더십형 직종'
+            };
+            return names[filter] || filter;
+        }
+
+        function getFilterDescription(filter) {
+            const descriptions = {
+                'communication': '(발신력+공감력+경청력 모두 보유)',
+                'stress': '(유연성,인내력,냉정함,적극성 중 3개 이상)',
+                'intelligence': '(논리적 사고력+정보활용능력 모두 보유)',
+                'leadership': '(견인력+모티베이션 능력 모두 보유)'
+            };
+            return descriptions[filter] || '';
+        }
+
+        // 필터 기능
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                if (tab.classList.contains('active')) {
+                    // 이미 활성화된 탭을 클릭하면 필터 해제
+                    tab.classList.remove('active');
+                    currentFilter = null;
+                } else {
+                    // 다른 탭 클릭시 해당 필터 적용
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentFilter = tab.dataset.filter;
+                }
+                performSearch();
+            });
+        });
+
+        // 검색 이벤트
+        searchBox.addEventListener('input', performSearch);
+
+        // 키보드 단축키
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                searchBox.focus();
+            }
+            if (e.key === 'Escape') {
+                searchBox.value = '';
+                filterTabs.forEach(t => t.classList.remove('active'));
+                currentFilter = null;
+                performSearch();
+            }
+        });
+
+        // 스무스 스크롤
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(btn.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // 초기 렌더링
+        renderIndustries();
+        renderJobs();
+        renderKeywordIndex();
+
+        // 초기 포커스
+        searchBox.focus();
+    </script>
+</body>
+</html>
